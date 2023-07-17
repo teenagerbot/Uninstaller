@@ -2,6 +2,13 @@ const { app, BrowserWindow } = require('electron');
 const window = require('electron').BrowserWindow;
 require('@electron/remote/main').initialize();
 const path = require('path');
+var exec = require('child_process').exec;
+exec('NET SESSION', function (err, so, se) {
+    const Admin = se.length === 0 ? 'admin' : 'not admin';
+    if (Admin != "admin") {
+        app.quit();
+    }
+})
 let mainWindow;
 let loadWindow;
 function createWindow() {
@@ -11,6 +18,8 @@ function createWindow() {
         autoHideMenuBar: true,
         resizable: false,
         frame: false,
+        movable: false,
+        skipTaskbar: true,
         webPreferences: {
             contextIsolation: false,
             nodeIntegration: true,

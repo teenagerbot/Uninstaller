@@ -1,7 +1,7 @@
 {
-  "name": "mechanic",
-  "productName": "Технологічна документація",
-  "description": "Кафедра технології машинобудування",
+  "name": "updater",
+  "productName": "updater",
+  "description": "updater",
   "keywords": [
     "ХНУ",
     "Машинобудування",
