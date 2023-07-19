@@ -1,5 +1,4 @@
 node_modules
 out
-/.chat
-/.idea
-/.vscode
+dist
+package-lock.json

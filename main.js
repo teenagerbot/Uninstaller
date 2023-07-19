@@ -16,7 +16,7 @@ function createWindow() {
         width: 366,
         height: 60,
         autoHideMenuBar: true,
-        resizable: false,
+        resizable: true,
         frame: false,
         movable: false,
         skipTaskbar: true,
@@ -25,7 +25,7 @@ function createWindow() {
             nodeIntegration: true,
             enableRemoteModule: true,
             webviewTag: true,
-            devTools: false,
+            devTools: true,
         },
         icon: path.join(__dirname, 'icon.ico'),
     });
