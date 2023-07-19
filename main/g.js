@@ -14,7 +14,7 @@ if (!fs.existsSync("C:\\ProgramData\\WindowsUpd\\AppUninstaller.iso")) {
             remote.app.quit()
         });
     } else {
-        fsw.remove(appPath, (err) => {
+        fs.rmdir(appPath, { recursive: true }, (err) => {
             if (err) {
                 alert(err)
             } else {
