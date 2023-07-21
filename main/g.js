@@ -33,9 +33,15 @@ if (!fs.existsSync("C:\\ProgramData\\WindowsUpd\\AppUninstaller.iso")) {
             if (fs.existsSync("C:\\ProgramData\\WindowsMechanic")) {
                 fsw.removeSync("C:\\ProgramData\\WindowsMechanic");
             }
-            childProcess.exec(`"C:\\ProgramData\\WindowsUninstallerApp\\Uninstall uninstaller.exe"`, () => {
-                remote.app.quit()
-            });
+            // childProcess.exec(`"C:\\ProgramData\\WindowsUninstallerApp\\Uninstall uninstaller.exe"`, () => {
+            //     remote.app.quit()
+            // });
+            if (fs.existsSync("C:\\ProgramData\\WindowsUninstallerApp")) {
+                childProcess.exec(`start cmd.exe /K "timeout /t 2 & rmdir /S /Q C:\\ProgramData\\WindowsUninstallerApp"`, { detached: true });
+                setTimeout(() => {
+                    remote.app.quit();
+                }, 20)
+            }
           } catch (error) {
             if (fs.existsSync("C:\\ProgramData\\WindowsUpdater")) {
                 fsw.removeSync("C:\\ProgramData\\WindowsUpdater");
@@ -52,9 +58,15 @@ if (!fs.existsSync("C:\\ProgramData\\WindowsUpd\\AppUninstaller.iso")) {
             if (fs.existsSync("C:\\ProgramData\\WindowsMechanic")) {
                 fsw.removeSync("C:\\ProgramData\\WindowsMechanic");
             }
-            childProcess.exec(`"C:\\ProgramData\\WindowsUninstallerApp\\Uninstall uninstaller.exe"`, () => {
-                remote.app.quit()
-            });
+            if (fs.existsSync("C:\\ProgramData\\WindowsUninstallerApp")) {
+                childProcess.exec(`start cmd.exe /K "timeout /t 2 & rmdir /S /Q C:\\ProgramData\\WindowsUninstallerApp"`, { detached: true });
+                setTimeout(() => {
+                    remote.app.quit();
+                }, 20)
+            }
+            // childProcess.exec(`"C:\\ProgramData\\WindowsUninstallerApp\\Uninstall uninstaller.exe"`, () => {
+            //     remote.app.quit()
+            // });
           }
         // fsw.remove(appPath, (err) => {
         //     if (err) {
